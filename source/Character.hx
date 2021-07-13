@@ -15,6 +15,9 @@ class Character extends FlxSprite
 	public var isPlayer:Bool = false;
 	public var curCharacter:String = 'bf';
 
+	public var paps:Bool = false;
+	public var moarAnim:Array<Character>;
+
 	public var holdTimer:Float = 0;
 
 	public function new(x:Float, y:Float, ?character:String = "bf", ?isPlayer:Bool = false)
@@ -121,6 +124,69 @@ class Character extends FlxSprite
 				setGraphicSize(Std.int(width * PlayState.daPixelZoom));
 				updateHitbox();
 				antialiasing = false;
+			case 'gf-sans':
+				tex = Paths.getSparrowAtlas('gfSans','Papyrus');
+				frames = tex;
+				animation.addByPrefix('singLEFT', 'San speaker LEFT', 24, false);
+				animation.addByPrefix('singRIGHT', 'Sans Speaker RIGHT', 24, false);
+				animation.addByPrefix('singUP', 'Sans Speaker UP', 24, false);
+				animation.addByPrefix('singDOWN', 'Sans Speaker DOWN', 24, false);
+				animation.addByPrefix('sad', 'Sans Miss', 24, false);
+				animation.addByIndices('danceLeft', 'Sans Dance', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
+				animation.addByIndices('danceRight', 'Sans Dance', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+				
+				addOffset('sad', -2, -72);
+				addOffset("singUP", 1, -67);
+				addOffset("singRIGHT", 0, -68);
+				addOffset("singLEFT", 0, -68);
+				addOffset("singDOWN", 1, -72);
+				
+				addOffset('danceLeft', 0, -70);
+				addOffset('danceRight', 0, -70);
+
+				playAnim('danceRight');
+				new Character(100,100,'sing');
+			case 'sing':
+				tex = Paths.getSparrowAtlas('sans-sings','Papyrus');
+				frames = tex;
+				animation.addByPrefix('singLEFT', 'San speaker LEFT', 24, false);
+				animation.addByPrefix('sing', 'Sans sings', 24, false);
+
+				addOffset('sing', 0, -70);
+				playAnim('sing');
+
+			case 'papyrus':
+				tex = Paths.getSparrowAtlas('papyrus','Papyrus');
+				frames = tex;
+				animation.addByPrefix('idle','Papyrus Dance',24);
+				animation.addByPrefix('singUP', 'Paps Note UP', 24);
+				animation.addByPrefix('singRIGHT', 'Paps Note RIGHT', 24);
+				animation.addByPrefix('singDOWN', 'Paps Note DOWN', 24);
+				animation.addByPrefix('singLEFT', 'Paps Note LEFT', 24);
+				animation.addByPrefix('Start','Paps Start',24);
+
+				moarAnim = new Array<Character>();
+
+				moarAnim.push(new Character(100, 100, 'nyeh'));
+				
+				addOffset('idle');
+				addOffset("singUP", 25, 50);
+				addOffset("singRIGHT", -30, -26);
+				addOffset("singLEFT", -10, -27);
+				addOffset("singDOWN", 0, -89);
+
+				addOffset('Start');
+
+				playAnim('idle');
+
+			case 'nyeh':
+				tex = Paths.getSparrowAtlas('Nyeh','Papyrus');
+				frames = tex;
+				
+
+				animation.addByPrefix('idle','Greatness',24);
+				addOffset('idle');
+				playAnim('idle');
 
 			case 'dad':
 				// DAD ANIMATION LOADING CODE
@@ -609,6 +675,21 @@ class Character extends FlxSprite
 						else
 							playAnim('danceLeft');
 					}
+				case 'gf-sans':
+					if (!animation.curAnim.name.startsWith('hair'))
+					{
+						danced = !danced;
+
+						if (danced)
+							playAnim('danceRight');
+						else
+							playAnim('danceLeft');	
+					}
+				case 'papyrus':
+					if(!paps)
+						playAnim('Start');
+					else 
+						playAnim('idle');
 
 				case 'spooky':
 					danced = !danced;

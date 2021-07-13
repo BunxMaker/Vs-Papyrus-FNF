@@ -183,6 +183,7 @@ class ResultsScreen extends FlxSubState
 			switch (songHighscore) {
 				case 'Dad-Battle': songHighscore = 'Dadbattle';
 				case 'Philly-Nice': songHighscore = 'Philly';
+                case 'Down-to-the-Bone': songHighscore = 'DowntotheBone';
 			}
 
 			#if !switch
@@ -210,15 +211,18 @@ class ResultsScreen extends FlxSubState
             switch (songFormat) {
                 case 'Dad-Battle': songFormat = 'Dadbattle';
                 case 'Philly-Nice': songFormat = 'Philly';
+                case 'Down-to-the-Bone': songFormat = 'DowntotheBone';
                     // Replay v1.0 support
                 case 'dad-battle': songFormat = 'Dadbattle';
                 case 'philly-nice': songFormat = 'Philly';
+                case 'down-to-the-bone': songFormat = 'downtothebone';
             }
 
 			var songHighscore = StringTools.replace(PlayState.SONG.song, " ", "-");
 			switch (songHighscore) {
 				case 'Dad-Battle': songHighscore = 'Dadbattle';
 				case 'Philly-Nice': songHighscore = 'Philly';
+                case 'Down-to-the-Bone': songHighscore = 'DowntotheBone';
 			}
 
 			#if !switch
@@ -247,6 +251,7 @@ class ResultsScreen extends FlxSubState
 			switch (songHighscore) {
 				case 'Dad-Battle': songHighscore = 'Dadbattle';
 				case 'Philly-Nice': songHighscore = 'Philly';
+                case 'Down-to-the-Bone': songHighscore = 'DowntotheBone';
 			}
 
 			#if !switch
@@ -258,8 +263,10 @@ class ResultsScreen extends FlxSubState
             switch (songFormat) {
                 case 'Dad-Battle': songFormat = 'Dadbattle';
                 case 'Philly-Nice': songFormat = 'Philly';
+                case 'Down-to-the-Bone': songFormat = 'DowntotheBone';
                 case 'dad-battle': songFormat = 'Dadbattle';
                 case 'philly-nice': songFormat = 'Philly';
+                case 'down-to-the-bone': songFormat = 'downtothebone';
             }
 
             var poop:String = Highscore.formatSong(songFormat, PlayState.storyDifficulty);

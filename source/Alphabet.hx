@@ -189,6 +189,7 @@ class Alphabet extends FlxSpriteGroup
 			{
 				if (lastSprite != null && !xPosResetted)
 				{
+					//maybe
 					lastSprite.updateHitbox();
 					xPos += lastSprite.width + 3;
 					// if (isBold)

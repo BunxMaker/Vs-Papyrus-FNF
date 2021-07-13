@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="pap.png">
+	<!-- Created with Adobe Animate version 20.0.0.17400 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Paps express Normal0000" x="6" y="6" width="161" height="210" frameX="0" frameY="0" frameWidth="161" frameHeight="217"/>
+	<SubTexture name="Paps express Normal0001" x="209" y="6" width="161" height="210" frameX="0" frameY="0" frameWidth="161" frameHeight="217"/>
+	<SubTexture name="Paps express Normal0002" x="412" y="6" width="161" height="217"/>
+	<SubTexture name="Paps express Normal0003" x="615" y="6" width="161" height="217"/>
+	<SubTexture name="Paps expression Proud0000" x="818" y="6" width="203" height="211" frameX="0" frameY="0" frameWidth="203" frameHeight="217"/>
+	<SubTexture name="Paps expression Proud0001" x="1063" y="6" width="203" height="211" frameX="0" frameY="0" frameWidth="203" frameHeight="217"/>
+	<SubTexture name="Paps expression Proud0002" x="1308" y="6" width="197" height="217" frameX="0" frameY="0" frameWidth="203" frameHeight="217"/>
+	<SubTexture name="Paps expression Proud0003" x="1547" y="6" width="197" height="217" frameX="0" frameY="0" frameWidth="203" frameHeight="217"/>
+	<SubTexture name="Paps expression ego0000" x="1786" y="6" width="161" height="210" frameX="0" frameY="0" frameWidth="161" frameHeight="217"/>
+	<SubTexture name="Paps expression ego0001" x="6" y="265" width="161" height="210" frameX="0" frameY="0" frameWidth="161" frameHeight="217"/>
+	<SubTexture name="Paps expression ego0002" x="209" y="265" width="161" height="217"/>
+	<SubTexture name="Paps expression ego0003" x="412" y="265" width="161" height="217"/>
+	<SubTexture name="Paps expression hapy0000" x="615" y="265" width="161" height="210" frameX="0" frameY="0" frameWidth="161" frameHeight="217"/>
+	<SubTexture name="Paps expression hapy0001" x="818" y="265" width="161" height="210" frameX="0" frameY="0" frameWidth="161" frameHeight="217"/>
+	<SubTexture name="Paps expression hapy0002" x="1021" y="265" width="161" height="217"/>
+	<SubTexture name="Paps expression hapy0003" x="1224" y="265" width="161" height="217"/>
+	<SubTexture name="Paps expression think0000" x="1427" y="265" width="161" height="210" frameX="0" frameY="0" frameWidth="161" frameHeight="217"/>
+	<SubTexture name="Paps expression think0001" x="1630" y="265" width="161" height="210" frameX="0" frameY="0" frameWidth="161" frameHeight="217"/>
+	<SubTexture name="Paps expression think0002" x="1833" y="265" width="161" height="217"/>
+	<SubTexture name="Paps expression think0003" x="6" y="524" width="161" height="217"/>
+</TextureAtlas>

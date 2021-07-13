@@ -103,6 +103,7 @@ class PlayState extends MusicBeatState
 
 	var songLength:Float = 0;
 	var kadeEngineWatermark:FlxText;
+	var gfBlue:FlxSprite;
 	
 	#if windows
 	// Discord RPC variables
@@ -126,7 +127,7 @@ class PlayState extends MusicBeatState
 	public var strumLine:FlxSprite;
 	private var curSection:Int = 0;
 
-	private var camFollow:FlxObject;
+	public static var camFollow:FlxObject;
 
 	private static var prevCamFollow:FlxObject;
 
@@ -136,6 +137,7 @@ class PlayState extends MusicBeatState
 
 	private var camZooming:Bool = false;
 	private var curSong:String = "";
+	var bone:DialogueBox;
 
 	private var gfSpeed:Int = 1;
 	public var health:Float = 1; //making public because sethealth doesnt work without it
@@ -268,6 +270,7 @@ class PlayState extends MusicBeatState
 		switch (songLowercase) {
 			case 'dad-battle': songLowercase = 'dadbattle';
 			case 'philly-nice': songLowercase = 'philly';
+			case 'down-to-the-bone': songLowercase = 'downtothebone';
 		}
 		
 		removedVideo = false;
@@ -365,7 +368,18 @@ class PlayState extends MusicBeatState
 				dialogue = CoolUtil.coolTextFile(Paths.txt('roses/rosesDialogue'));
 			case 'thorns':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('thorns/thornsDialogue'));
+			case 'downtothebone':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('downtothebone/testingdial'));
 		}
+		var pap1:Array<String> = [
+			':pap:normal:I, THE GREAT PAPYRUS WILL CAPTURE BOTH OF YOU',
+			':pap:normal:BEHOLD, WATCH AND LEARN HUMANS!!'
+		];
+		var pap2:Array<String> = [
+			"IF IT TAKES FINE TUNES TO CAPTURE YOU...\nSO BE IT!!",
+			"NYEH HEH HEH HEH HEH!!!"
+		];
+
 
 		//defaults if no stage was found in chart
 		var stageCheck:String = 'stage';
@@ -378,6 +392,7 @@ class PlayState extends MusicBeatState
 				case 4: stageCheck = 'limo';
 				case 5: if (songLowercase == 'winter-horrorland') {stageCheck = 'mallEvil';} else {stageCheck = 'mall';}
 				case 6: if (songLowercase == 'thorns') {stageCheck = 'schoolEvil';} else {stageCheck = 'school';}
+				case 7: stageCheck = 'forest';
 				//i should check if its stage (but this is when none is found in chart anyway)
 			}
 		} else {stageCheck = SONG.stage;}
@@ -403,6 +418,34 @@ class PlayState extends MusicBeatState
 				add(halloweenBG);
 
 				isHalloween = true;
+			}
+			case 'forest': 
+			{
+				defaultCamZoom = 0.8;
+				curStage = 'snow';
+
+				var bg:FlxSprite = new FlxSprite(-600, -400).loadGraphic(Paths.image('stage/BG','Papyrus'));
+				bg.antialiasing = true;
+				bg.scrollFactor.set(0.9, 0.9);
+				bg.active = false;
+				add(bg);
+
+				gfBlue = new FlxSprite(1000, 300);
+				gfBlue.frames = Paths.getSparrowAtlas('stage/gfBlue','Papyrus');
+				gfBlue.animation.addByPrefix('blue', "GFisBlue", 24, false);
+				gfBlue.antialiasing = true;
+				gfBlue.scrollFactor.set(0.9, 0.9);
+				if(FlxG.save.data.distractions){
+					add(gfBlue);
+				}
+
+				var snow:FlxSprite = new FlxSprite(-600, -425).loadGraphic(Paths.image('stage/front bg','Papyrus'));
+				snow.setGraphicSize(Std.int(snow.width * 1.1));
+				snow.updateHitbox();
+				snow.antialiasing = true;
+				snow.scrollFactor.set(0.9, 0.9);
+				snow.active = false;
+				add(snow);
 			}
 			case 'philly': 
 					{
@@ -774,6 +817,7 @@ class PlayState extends MusicBeatState
 				case 4: gfCheck = 'gf-car';
 				case 5: gfCheck = 'gf-christmas';
 				case 6: gfCheck = 'gf-pixel';
+				case 7: gfCheck = 'gf-sans';
 			}
 		} else {gfCheck = SONG.gfVersion;}
 
@@ -786,6 +830,8 @@ class PlayState extends MusicBeatState
 				curGf = 'gf-christmas';
 			case 'gf-pixel':
 				curGf = 'gf-pixel';
+			case 'gf-sans':
+				curGf = 'gf-sans';
 			default:
 				curGf = 'gf';
 		}
@@ -807,7 +853,8 @@ class PlayState extends MusicBeatState
 					camPos.x += 600;
 					tweenCamIn();
 				}
-
+			case 'papyrus':
+				dad.x -= 100;
 			case "spooky":
 				dad.y += 200;
 			case "monster":
@@ -849,7 +896,9 @@ class PlayState extends MusicBeatState
 					resetFastCar();
 					add(fastCar);
 				}
-
+			
+			case 'snow':
+				gf.x -= 150;
 			case 'mall':
 				boyfriend.x += 200;
 
@@ -906,11 +955,14 @@ class PlayState extends MusicBeatState
 
 		trace("SF CALC: " + Math.floor((PlayStateChangeables.safeFrames / 60) * 1000));
 
-		var doof:DialogueBox = new DialogueBox(false, dialogue);
+		var doof:DialogueBox = new DialogueBox(dialogue);
 		// doof.x += 70;
 		// doof.y = FlxG.height * 0.5;
 		doof.scrollFactor.set();
 		doof.finishThing = startCountdown;
+
+	    bone = new DialogueBox(pap1);
+		bone.scrollFactor.set();
 
 		Conductor.songPosition = -5000;
 		
@@ -994,7 +1046,7 @@ class PlayState extends MusicBeatState
 		healthBar = new FlxBar(healthBarBG.x + 4, healthBarBG.y + 4, RIGHT_TO_LEFT, Std.int(healthBarBG.width - 8), Std.int(healthBarBG.height - 8), this,
 			'health', 0, 2);
 		healthBar.scrollFactor.set();
-		healthBar.createFilledBar(0xFFFF0000, 0xFF66FF33);
+		healthBar.createFilledBar(0xFFFF0000, 0xFFFFFF00);
 		// healthBar
 		add(healthBar);
 
@@ -1110,6 +1162,8 @@ class PlayState extends MusicBeatState
 					schoolIntro(doof);
 				case 'thorns':
 					schoolIntro(doof);
+				case 'down-to-the-bone':
+					papIntro(doof);
 				default:
 					startCountdown();
 			}
@@ -1214,7 +1268,56 @@ class PlayState extends MusicBeatState
 			}
 		});
 	}
-
+	function papIntro(?dialogueBox:DialogueBox):Void
+		{
+			var black:FlxSprite = new FlxSprite(-200, -100).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
+			black.scrollFactor.set();
+			add(black);
+	
+			var red:FlxSprite = new FlxSprite(-100, -100).makeGraphic(FlxG.width * 2, FlxG.height * 2, 0xFFff1b31);
+			red.scrollFactor.set();
+	
+	
+			if (StringTools.replace(PlayState.SONG.song, " ", "-").toLowerCase() == 'roses' || StringTools.replace(PlayState.SONG.song, " ", "-").toLowerCase() == 'thorns')
+			{
+				remove(black);
+	
+				if (StringTools.replace(PlayState.SONG.song, " ", "-").toLowerCase() == 'thorns')
+				{
+					add(red);
+				}
+			}
+		
+			new FlxTimer().start(0.3, function(tmr:FlxTimer)
+			{
+				black.alpha -= 0.15;
+	
+				if (black.alpha > 0)
+				{
+					tmr.reset(0.3);
+				}
+				else
+				{
+					if (dialogueBox != null)
+					{
+						inCutscene = true;
+	
+						if (StringTools.replace(PlayState.SONG.song, " ", "-").toLowerCase() == 'thorns')
+						{
+							
+						}
+						else
+						{
+							add(dialogueBox);
+						}
+					}
+					else
+						startCountdown();
+	
+					remove(black);
+				}
+			});
+		}
 	var startTimer:FlxTimer;
 	var perfectMode:Bool = false;
 
@@ -1238,6 +1341,7 @@ class PlayState extends MusicBeatState
 		switch (songLowercase) {
 			case 'dad-battle': songLowercase = 'dadbattle';
 			case 'philly-nice': songLowercase = 'philly';
+			case 'down-to-the-bone': songLowercase = 'downtothebone';
 		}
 		if (executeModchart)
 		{
@@ -1518,7 +1622,6 @@ class PlayState extends MusicBeatState
 			vocals = new FlxSound();
 
 		trace('loaded vocals');
-
 		FlxG.sound.list.add(vocals);
 
 		notes = new FlxTypedGroup<Note>();
@@ -1538,6 +1641,7 @@ class PlayState extends MusicBeatState
 				switch (songLowercase) {
 					case 'dad-battle': songLowercase = 'dadbattle';
 					case 'philly-nice': songLowercase = 'philly';
+					case 'down-to-the-bone':songLowercase = 'downtothebone';
 				}
 
 			var songPath = 'assets/data/' + songLowercase + '/';
@@ -2702,6 +2806,7 @@ class PlayState extends MusicBeatState
 			switch (songHighscore) {
 				case 'Dad-Battle': songHighscore = 'Dadbattle';
 				case 'Philly-Nice': songHighscore = 'Philly';
+				case 'Down-to-the-Bone': songHighscore = 'DowntotheBone';
 			}
 
 			#if !switch
@@ -2770,6 +2875,7 @@ class PlayState extends MusicBeatState
 					switch (songFormat) {
 						case 'Dad-Battle': songFormat = 'Dadbattle';
 						case 'Philly-Nice': songFormat = 'Philly';
+						case 'Down-to-the-Bone': songFormat = 'DowntotheBone';
 					}
 
 					var poop:String = Highscore.formatSong(songFormat, storyDifficulty);
@@ -3818,6 +3924,31 @@ class PlayState extends MusicBeatState
 			luaModchart.executeState('beatHit',[curBeat]);
 		}
 		#end
+		if (curSong == 'Down to the Bone')
+			{
+				switch (curBeat)
+				{
+					case 14:
+						dad.paps = true;
+					case 90:
+						remove(gf);
+						gf = new Character(400, 130, 'sing');
+						gf.x -= 140;
+						gf.y += 78;
+						add(gf);
+					case 97:
+						remove(gf);
+						gf = new Character(400, 130, 'gf-sans');
+						gf.x -= 141;
+						gf.y += 10;
+						add(gf);
+					case 179:
+						remove(dad);
+						dad = new Character(100, 100, 'nyeh');
+						dad.x -= 190;
+						add(dad);
+				}
+			}
 
 		if (curSong == 'Tutorial' && dad.curCharacter == 'gf') {
 			if (curBeat % 2 == 1 && dad.animOffsets.exists('danceLeft'))
@@ -3900,6 +4031,11 @@ class PlayState extends MusicBeatState
 					upperBoppers.animation.play('bop', true);
 					bottomBoppers.animation.play('bop', true);
 					santa.animation.play('idle', true);
+				}
+			case 'snow':
+			
+				if(FlxG.save.data.distractions){
+					gfBlue.animation.play('blue', true);
 				}
 
 			case 'limo':

@@ -101,6 +101,7 @@ class Paths
 			switch (songLowercase) {
 				case 'dad-battle': songLowercase = 'dadbattle';
 				case 'philly-nice': songLowercase = 'philly';
+				case 'down-to-the-bone': songLowercase = 'downtothebone';
 			}
 		return 'songs:assets/songs/${songLowercase}/Voices.$SOUND_EXT';
 	}
@@ -111,6 +112,7 @@ class Paths
 			switch (songLowercase) {
 				case 'dad-battle': songLowercase = 'dadbattle';
 				case 'philly-nice': songLowercase = 'philly';
+				case 'down-to-the-bone': songLowercase = 'downtothebone';
 			}
 		return 'songs:assets/songs/${songLowercase}/Inst.$SOUND_EXT';
 	}

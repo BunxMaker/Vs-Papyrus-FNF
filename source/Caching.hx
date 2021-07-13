@@ -80,7 +80,7 @@ class Caching extends MusicBeatState
 
     function cache()
     {
-
+        var papimg = [];
         var images = [];
         var music = [];
 
@@ -92,6 +92,13 @@ class Caching extends MusicBeatState
                 continue;
             images.push(i);
         }
+        for (i in FileSystem.readDirectory(FileSystem.absolutePath("assets/Papyrus/images")))
+        {
+            if (!i.endsWith(".png"))
+                continue;
+            papimg.push(i);
+        }
+
 
         trace("caching music...");
 
@@ -100,7 +107,7 @@ class Caching extends MusicBeatState
             music.push(i);
         }
 
-        toBeDone = Lambda.count(images) + Lambda.count(music);
+        toBeDone = Lambda.count(images) + Lambda.count(music) + Lambda.count(papimg);
 
         trace("LOADING: " + toBeDone + " OBJECTS.");
 
@@ -108,6 +115,13 @@ class Caching extends MusicBeatState
         {
             var replaced = i.replace(".png","");
             FlxG.bitmap.add(Paths.image("characters/" + replaced,"shared"));
+            trace("cached " + replaced);
+            done++;
+        }
+        for (i in papimg)
+        {
+            var replaced = i.replace(".png","");
+            FlxG.bitmap.add(Paths.image(replaced,"Papyrus"));
             trace("cached " + replaced);
             done++;
         }

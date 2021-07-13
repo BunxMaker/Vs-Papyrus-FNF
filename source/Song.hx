@@ -53,6 +53,7 @@ class Song
 		switch (folderLowercase) {
 			case 'dad-battle': folderLowercase = 'dadbattle';
 			case 'philly-nice': folderLowercase = 'philly';
+			case 'down-to-the-bone': folderLowercase = 'downtothebone';
 		}
 		
 		trace('loading ' + folderLowercase + '/' + jsonInput.toLowerCase());

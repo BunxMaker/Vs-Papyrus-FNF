@@ -237,6 +237,7 @@ class FreeplayState extends MusicBeatState
 			switch (songFormat) {
 				case 'Dad-Battle': songFormat = 'Dadbattle';
 				case 'Philly-Nice': songFormat = 'Philly';
+				
 			}
 			
 			trace(songs[curSelected].songName);
@@ -268,6 +269,7 @@ class FreeplayState extends MusicBeatState
 		switch (songHighscore) {
 			case 'Dad-Battle': songHighscore = 'Dadbattle';
 			case 'Philly-Nice': songHighscore = 'Philly';
+			case 'Down-to-the-Bone': songHighscore = 'DowntotheBone';
 		}
 		
 		#if !switch
@@ -302,6 +304,7 @@ class FreeplayState extends MusicBeatState
 		switch (songHighscore) {
 			case 'Dad-Battle': songHighscore = 'Dadbattle';
 			case 'Philly-Nice': songHighscore = 'Philly';
+			case 'Down-to-the-Bone': songHighscore = 'DowntotheBone';
 		}
 
 		#if !switch

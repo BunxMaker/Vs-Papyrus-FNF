@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Nyeh.png">
+	<!-- Created with Adobe Animate version 20.0.0.17400 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Greatness instancia 10000" x="6" y="6" width="471" height="719" frameX="-2" frameY="-26" frameWidth="473" frameHeight="745"/>
+	<SubTexture name="Greatness instancia 10001" x="519" y="6" width="445" height="737" frameX="-18" frameY="-8" frameWidth="473" frameHeight="745"/>
+	<SubTexture name="Greatness instancia 10002" x="1006" y="6" width="434" height="745" frameX="-22" frameY="0" frameWidth="473" frameHeight="745"/>
+	<SubTexture name="Greatness instancia 10003" x="1482" y="6" width="437" height="743" frameX="-20" frameY="-2" frameWidth="473" frameHeight="745"/>
+	<SubTexture name="Greatness instancia 10004" x="1961" y="6" width="445" height="743" frameX="-13" frameY="-2" frameWidth="473" frameHeight="745"/>
+	<SubTexture name="Greatness instancia 10005" x="2448" y="6" width="452" height="743" frameX="-8" frameY="-2" frameWidth="473" frameHeight="745"/>
+	<SubTexture name="Greatness instancia 10006" x="2942" y="6" width="445" height="743" frameX="-14" frameY="-2" frameWidth="473" frameHeight="745"/>
+	<SubTexture name="Greatness instancia 10007" x="3429" y="6" width="457" height="743" frameX="-2" frameY="-2" frameWidth="473" frameHeight="745"/>
+	<SubTexture name="Greatness instancia 10008" x="6" y="793" width="457" height="743" frameX="0" frameY="-2" frameWidth="473" frameHeight="745"/>
+	<SubTexture name="Greatness instancia 10009" x="505" y="793" width="450" height="743" frameX="-7" frameY="-2" frameWidth="473" frameHeight="745"/>
+	<SubTexture name="Greatness instancia 10010" x="997" y="793" width="439" height="743" frameX="-18" frameY="-2" frameWidth="473" frameHeight="745"/>
+	<SubTexture name="Greatness instancia 10011" x="1478" y="793" width="433" height="743" frameX="-24" frameY="-2" frameWidth="473" frameHeight="745"/>
+	<SubTexture name="Greatness instancia 10012" x="1953" y="793" width="436" height="743" frameX="-21" frameY="-2" frameWidth="473" frameHeight="745"/>
+	<SubTexture name="Greatness instancia 10013" x="2431" y="793" width="437" height="743" frameX="-20" frameY="-2" frameWidth="473" frameHeight="745"/>
+	<SubTexture name="Greatness instancia 10014" x="2910" y="793" width="444" height="743" frameX="-13" frameY="-2" frameWidth="473" frameHeight="745"/>
+	<SubTexture name="Greatness instancia 10015" x="3396" y="793" width="449" height="743" frameX="-8" frameY="-2" frameWidth="473" frameHeight="745"/>
+	<SubTexture name="Greatness instancia 10016" x="6" y="1578" width="443" height="743" frameX="-14" frameY="-2" frameWidth="473" frameHeight="745"/>
+	<SubTexture name="Greatness instancia 10017" x="491" y="1578" width="455" height="743" frameX="-2" frameY="-2" frameWidth="473" frameHeight="745"/>
+	<SubTexture name="Greatness instancia 10018" x="988" y="1578" width="457" height="743" frameX="0" frameY="-2" frameWidth="473" frameHeight="745"/>
+	<SubTexture name="Greatness instancia 10019" x="1487" y="1578" width="450" height="743" frameX="-7" frameY="-2" frameWidth="473" frameHeight="745"/>
+	<SubTexture name="Greatness instancia 10020" x="1979" y="1578" width="439" height="743" frameX="-18" frameY="-2" frameWidth="473" frameHeight="745"/>
+	<SubTexture name="Greatness instancia 10021" x="2460" y="1578" width="433" height="743" frameX="-24" frameY="-2" frameWidth="473" frameHeight="745"/>
+	<SubTexture name="Greatness instancia 10022" x="2935" y="1578" width="436" height="743" frameX="-21" frameY="-2" frameWidth="473" frameHeight="745"/>
+	<SubTexture name="Greatness instancia 10023" x="3413" y="1578" width="437" height="743" frameX="-20" frameY="-2" frameWidth="473" frameHeight="745"/>
+	<SubTexture name="Greatness instancia 10024" x="6" y="2363" width="444" height="743" frameX="-13" frameY="-2" frameWidth="473" frameHeight="745"/>
+	<SubTexture name="Greatness instancia 10025" x="492" y="2363" width="449" height="743" frameX="-8" frameY="-2" frameWidth="473" frameHeight="745"/>
+	<SubTexture name="Greatness instancia 10026" x="983" y="2363" width="443" height="743" frameX="-14" frameY="-2" frameWidth="473" frameHeight="745"/>
+	<SubTexture name="Greatness instancia 10027" x="1468" y="2363" width="455" height="743" frameX="-2" frameY="-2" frameWidth="473" frameHeight="745"/>
+	<SubTexture name="Greatness instancia 10028" x="1965" y="2363" width="457" height="743" frameX="0" frameY="-2" frameWidth="473" frameHeight="745"/>
+	<SubTexture name="Greatness instancia 10029" x="2464" y="2363" width="450" height="743" frameX="-7" frameY="-2" frameWidth="473" frameHeight="745"/>
+	<SubTexture name="Greatness instancia 10030" x="2956" y="2363" width="439" height="743" frameX="-18" frameY="-2" frameWidth="473" frameHeight="745"/>
+	<SubTexture name="Greatness instancia 10031" x="3437" y="2363" width="433" height="743" frameX="-24" frameY="-2" frameWidth="473" frameHeight="745"/>
+	<SubTexture name="Greatness instancia 10032" x="6" y="3148" width="436" height="743" frameX="-21" frameY="-2" frameWidth="473" frameHeight="745"/>
+	<SubTexture name="Greatness instancia 10033" x="484" y="3148" width="437" height="743" frameX="-20" frameY="-2" frameWidth="473" frameHeight="745"/>
+	<SubTexture name="Greatness instancia 10034" x="963" y="3148" width="437" height="743" frameX="-20" frameY="-2" frameWidth="473" frameHeight="745"/>
+</TextureAtlas>
