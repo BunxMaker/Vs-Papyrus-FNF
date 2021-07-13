@@ -6,7 +6,7 @@ import flixel.animation.FlxBaseAnimation;
 import flixel.graphics.frames.FlxAtlasFrames;
 
 using StringTools;
-
+//Probably "Inspired"
 class Portrait extends FlxSprite
 {
     private var posX:Float;
